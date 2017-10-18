@@ -48,23 +48,48 @@
       background-color: #f9f9f9
     }
   </style>
-</head>
-<body>
 
+</head>
+
+<body>
 
 <div class="yy">
 
 
+    <br/>
 
+    <a href="../../index.jsp"> Back to main menu</a>
 
-<a href="../../index.jsp"> Back to main menu</a>
+    <br/>
 
-<br/>
-<br/>
 
 <h1>Book List</h1>
 
-<c:if test="${!empty listBooks}">
+
+    <h1>Search</h1>
+
+    <form action="/booksByID/">
+        <label for="id">ID:</label>
+        <input type="number" id="id" name="id" placeholder="id"/>
+        <br/>
+        <br/>
+        <input type="submit" value="Search"/>
+    </form>
+
+    <%--
+    <br/>
+    <br/>
+    <form action="/booksByTitle/">
+        <label for="title">TITLE:</label>
+        <input type="text" title="title" name="title" placeholder="title"/>
+        <br/>
+        <br/>
+        <input type="submit" value="Search"/>
+    </form>
+--%>
+    <br/>
+
+    <c:if test="${!empty listBooks}">
   <table class="tg">
     <tr>
       <th width="80">ID</th>
@@ -77,7 +102,9 @@
       <th width="60">Edit</th>
       <th width="60">Delete</th>
     </tr>
-    <c:forEach items="${listBooks}" var="book">
+
+      <tbody>
+      <c:forEach items="${listBooks}" var="book">
       <tr>
         <td>${book.id}</td>
         <td><a href="/bookdate/${book.id}" target="_blank">${book.title}</a></td>
@@ -90,8 +117,12 @@
         <td><a href="<c:url value='/remove/${book.id}'/>">Delete</a></td>
       </tr>
     </c:forEach>
+      </tbody>
   </table>
+
 </c:if>
+
+
 
   <div id="pagination" class="uu">
     <p >Pagination: </p>
@@ -123,7 +154,10 @@
       <a href='<c:out value="${next}" />' class="pn next">Next</a>
     </c:if>
   </div>
-</div>
+
+       </div>
+
+
 
 <h1>Add a Book</h1>
 
@@ -169,9 +203,6 @@
         <form:input path="description"/>
       </td>
     </tr>
-
-
-
 
 
     <tr>
@@ -239,11 +270,6 @@
     </tr>
   </table>
 </form:form>
-
-
-
-
-
 
 
 

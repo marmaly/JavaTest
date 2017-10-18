@@ -1,7 +1,7 @@
 package com.java.javatest.dao;
 
 import com.java.javatest.model.Book;
-import org.springframework.ui.context.Theme;
+
 
 import java.util.List;
 
@@ -20,6 +20,7 @@ public interface BookDao {
 
     public List<Book> listBooks(); // вывод всех книг в нашейй таблице
 
-    //Book findBookByTitle(String title); // поиск книги по уже существующим по низванию (title)
+  // public List<Book> getBookByTitle(String title); // поиск книги по уже существующим по названию
+
 
 }

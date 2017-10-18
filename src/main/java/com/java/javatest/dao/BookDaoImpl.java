@@ -3,14 +3,17 @@ package com.java.javatest.dao;
 
 
 import com.java.javatest.model.Book;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
 
-
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,7 +24,7 @@ import java.util.List;
 public class BookDaoImpl implements BookDao {
 
     private static final Logger logger = LoggerFactory.getLogger(BookDaoImpl.class);
-
+    @Autowired
     private SessionFactory sessionFactory;
 
     public void setSessionFactory(SessionFactory sessionFactory) {
@@ -66,9 +69,11 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    @SuppressWarnings("unchecked")
+        @SuppressWarnings("unchecked")
     public List<Book> listBooks() {
+
         Session session = this.sessionFactory.getCurrentSession();
+
         List<Book> bookList = session.createQuery("from Book").list();
 
         for (Book book : bookList) {
@@ -77,8 +82,23 @@ public class BookDaoImpl implements BookDao {
 
         return bookList;
     }
+/*
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Book> getBookByTitle(String title) {
+        Session session = this.sessionFactory.getCurrentSession();
 
+        List<Book> bookList = session.createQuery("from Book").list();
 
+        List<Book> listBooksTitle = new ArrayList<Book>();
 
+        for (Book book : listBooksTitle) {
+            if (book.getAuthor().equals(title)) listBooksTitle.add(book);
+        }
+
+        return listBooksTitle;
+    }
+
+*/
 
 }
