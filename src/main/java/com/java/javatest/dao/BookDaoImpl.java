@@ -82,23 +82,5 @@ public class BookDaoImpl implements BookDao {
 
         return bookList;
     }
-/*
-    @Override
-    @SuppressWarnings("unchecked")
-    public List<Book> getBookByTitle(String title) {
-        Session session = this.sessionFactory.getCurrentSession();
-
-        List<Book> bookList = session.createQuery("from Book").list();
-
-        List<Book> listBooksTitle = new ArrayList<Book>();
-
-        for (Book book : listBooksTitle) {
-            if (book.getAuthor().equals(title)) listBooksTitle.add(book);
-        }
-
-        return listBooksTitle;
-    }
-
-*/
 
 }

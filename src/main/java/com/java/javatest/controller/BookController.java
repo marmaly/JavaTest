@@ -99,25 +99,11 @@ public class BookController {
     }
 
 
-
-
-    // черт ногу сломит
-
-
     @RequestMapping("/booksByID/")
     public String search(@RequestParam("id") int id, Model model) {
         model.addAttribute("book", this.bookService.getBookById(id));
         return "booksByID";
     }
 
-/*
 
-    @RequestMapping(value = "/booksByTitle/")
-    public String searchTitle(@RequestParam("title") String title, Model model){
-      //  model.addAttribute("book", new Book());
-        model.addAttribute("listBooksTitle", this.bookService.getBookByTitle(title));
-        return "booksByTitle";
-
-    }
-*/
 }

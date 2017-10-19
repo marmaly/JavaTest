@@ -76,17 +76,7 @@
         <input type="submit" value="Search"/>
     </form>
 
-    <%--
-    <br/>
-    <br/>
-    <form action="/booksByTitle/">
-        <label for="title">TITLE:</label>
-        <input type="text" title="title" name="title" placeholder="title"/>
-        <br/>
-        <br/>
-        <input type="submit" value="Search"/>
-    </form>
---%>
+
     <br/>
 
     <c:if test="${!empty listBooks}">
