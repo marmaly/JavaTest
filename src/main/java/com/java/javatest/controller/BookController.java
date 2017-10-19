@@ -100,13 +100,13 @@ public class BookController {
     }
 
 
-    @RequestMapping("/booksByID/")
+    @RequestMapping("/booksbyid/")
     public String search(@RequestParam("id") int id, Model model) {
         model.addAttribute("book", this.bookService.getBookById(id));
-        return "booksByID";
+        return "booksbyid";
     }
 
-    @RequestMapping(value = "/BooksByTitle/",method = RequestMethod.POST)
+    @RequestMapping(value = "/booksbybitle/",method = RequestMethod.POST)
     public String searchBook (HttpServletRequest request, Model model) {
 
         String title = request.getParameter("title");
@@ -115,7 +115,7 @@ public class BookController {
 
         model.addAttribute("book", book);
 
-        return "BooksByTitle";
+        return "booksbytitle";
     }
 
 

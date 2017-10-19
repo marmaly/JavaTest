@@ -68,23 +68,19 @@
 
     <h1>Search</h1>
 
-    <form action="/booksByID/">
+    <form action="/booksbyid/">
         <label for="id">ID:</label>
         <input type="number" id="id" name="id" placeholder="id"/>
-        <br/>
-        <br/>
-        <input type="submit" value="Search"/>
+
+        <input type="submit" value="search"/>
     </form>
 
-
-    <c:url value="/BooksByTitle/" var="searchAction" />
-    <form:form action="${searchAction}"  method="POST" >
-        <label >
-            <input type="text" name="title"/>
-        </label>
-        <input type="submit" value="search" /> </form:form>
-
-
+        <c:url value="/booksbybitle/" var="searchAction" />
+        <form:form action="${searchAction}"  method="POST" >
+            <label>Title:
+                <input type="text" title="title" placeholder="title"/>
+            </label>
+            <input type="submit" value="search" /> </form:form>
 
 
     <br/>
