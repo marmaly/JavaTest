@@ -77,6 +77,16 @@
     </form>
 
 
+    <c:url value="/BooksByTitle/" var="searchAction" />
+    <form:form action="${searchAction}"  method="POST" >
+        <label >
+            <input type="text" name="title"/>
+        </label>
+        <input type="submit" value="search" /> </form:form>
+
+
+
+
     <br/>
 
     <c:if test="${!empty listBooks}">

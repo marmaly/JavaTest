@@ -19,4 +19,6 @@ public interface BookService {
 
     public List<Book> listBooks(); // вывод всех книг в нашейй таблице
 
+    public Book getBookByTitle(String title); // поиск книги по уже существующим по названию
+
 }

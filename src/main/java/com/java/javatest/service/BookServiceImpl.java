@@ -52,4 +52,10 @@ public class BookServiceImpl implements BookService {
     }
 
 
+    @Override
+    @Transactional
+    public Book getBookByTitle(String title) {
+        return this.bookDao.getBookByTitle(title);
+    }
+
 }

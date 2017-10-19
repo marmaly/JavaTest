@@ -20,6 +20,6 @@ public interface BookDao {
 
     public List<Book> listBooks(); // вывод всех книг в нашейй таблице
 
-
+    public Book getBookByTitle(String title);
 
 }

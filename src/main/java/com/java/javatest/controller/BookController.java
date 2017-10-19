@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -103,6 +104,18 @@ public class BookController {
     public String search(@RequestParam("id") int id, Model model) {
         model.addAttribute("book", this.bookService.getBookById(id));
         return "booksByID";
+    }
+
+    @RequestMapping(value = "/BooksByTitle/",method = RequestMethod.POST)
+    public String searchBook (HttpServletRequest request, Model model) {
+
+        String title = request.getParameter("title");
+
+        Book book = this.bookService.getBookByTitle(title);
+
+        model.addAttribute("book", book);
+
+        return "BooksByTitle";
     }
 
 
